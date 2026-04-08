@@ -1,3 +1,39 @@
 [gd_scene format=3 uid="uid://b567scokq8rp4"]
 
-[node name="Player" type="Node2D" unique_id=768866689]
+[ext_resource type="Texture2D" uid="uid://b2x88a4vy5x3i" path="res://art/playerGrey_walk1.png" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://b5yxw8yly7o5y" path="res://art/playerGrey_walk2.png" id="2_i3pqv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hqtel"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"arriba",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_onrkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_i3pqv")
+}],
+"loop": true,
+"name": &"caminar",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sweqy"]
+radius = 30.0
+height = 72.0
+
+[node name="Area2D" type="Area2D" unique_id=1801826053]
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1154333783]
+position = Vector2(1, -0.75)
+scale = Vector2(0.515, 0.5)
+sprite_frames = SubResource("SpriteFrames_hqtel")
+animation = &"caminar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1396000414]
+shape = SubResource("CapsuleShape2D_sweqy")
