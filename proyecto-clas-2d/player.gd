@@ -10,7 +10,6 @@ func _ready() -> void:
 	pass 
 
 
-
 func _process(delta: float) -> void:
 	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("move_right"):
@@ -44,12 +43,11 @@ func _process(delta: float) -> void:
 
 
 
-func _on_body_entered(body: Node2D) -> void:
-	hide() # Player disappears after being hit.
+func _on_body_entered(_Body: Node2D) -> void:
+	hide() # 
 	hit.emit()
-	# Must be deferred as we can't change physics properties on a physics callback.
 	$CollisionShape2D.set_deferred("disabled", true)
-	pass # Replace with function body.
+	pass 
 	
 func start(pos):
 	position = pos
